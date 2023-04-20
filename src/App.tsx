@@ -2,36 +2,32 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Layout from './components/Layout/Layout';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Home } from '@mui/icons-material';
+import MainContent from './components/MainContent/MainContent';
+import SortableSquare from './components/Sortable/SortableSquare';
+import SortSet from './components/Sortable/SortSet';
 
-const navStructure = {
-  "Sorting": {
-    "Insertion Sort": "insertionSort",
-    "Selection Sort": "selectionSort",
-    "Merge Sort": "mergeSort",
-    "Bubble Sort": "bubbleSort"
-  },
-  "Searching": {
-    "Linear Search": "linearSearch",
-    "Binary Search": "binarySearch"
-  },
-  "Graph Traversal": {
-    "Inorder": "inorder",
-    "Preorder": "preorder",
-    "Postorder": "postorder"
-  },
-  "Path Finding": {
-    "Dijkstra": "dijkstra",
-    "A*": "aStar",
-  }
-}
+
 
 
 function App() {
   return (
     <div className="App">
-      <Layout data={navStructure}>
-        gdfgfsgfg
-      </Layout>
+      <BrowserRouter>
+        <Layout >
+        <Routes>
+          <Route path="/" element={
+          <MainContent>
+            
+
+            <SortSet/>
+          </MainContent>}/>
+          <Route path="/home" element={<MainContent> </MainContent>}/>
+          <Route path="*" element={<h1>sddsfd</h1>}/>
+        </Routes>
+        </Layout>
+      </BrowserRouter>
     </div>
   );
 }
