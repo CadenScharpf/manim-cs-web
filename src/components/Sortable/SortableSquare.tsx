@@ -1,10 +1,15 @@
 import { useTheme } from '@mui/material';
 import React from 'react';
-
+import { useState } from 'react';
 
 const SortableSquare: React.FC = () => {
   const theme = useTheme();
-  
+  const [squareValue, setSquareValue] = useState<string>('');
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    setSquareValue(event.target.value);
+  };
+
   return (
     <div>
        <svg width="200" height="200">
@@ -26,6 +31,8 @@ const SortableSquare: React.FC = () => {
               inputMode="numeric"
               maxLength={3}
               placeholder="_"
+              value={squareValue}
+              onChange={handleChange}
             />
           </div>
         </foreignObject>
@@ -34,4 +41,4 @@ const SortableSquare: React.FC = () => {
   );
 };
 
-export default SortableSquare;
+export default SortableSquare;  

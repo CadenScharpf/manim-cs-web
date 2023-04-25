@@ -11,8 +11,7 @@ interface Square {
 const initialSquares: Square[] = [
   { id: '1', value: '' },
   { id: '2', value: '' },
-  { id: '3', value: '' },
-  { id: '4', value: '' },
+
 ];
 
 const SortSet = () => {
@@ -31,8 +30,7 @@ const SortSet = () => {
   };
 
   return (
-    <DragDropContext onDragEnd={handleDragEnd}>
-
+    
     <Droppable droppableId="squares" direction="horizontal">
       {(provided: DroppableProvided, snapshot: DroppableStateSnapshot) => (
         <div ref={provided.innerRef} {...provided.droppableProps} style={{ display: 'flex' }}>
@@ -45,7 +43,7 @@ const SortSet = () => {
                   {...provided.dragHandleProps}
                   style={{ margin: theme.spacing(1), ...provided.draggableProps.style }}
                 >
-                  <SortableSquare  />
+                  <SortableSquare/>
                 </div>
               )}
             </Draggable>
@@ -54,7 +52,7 @@ const SortSet = () => {
         </div>
       )}
     </Droppable>
-    </DragDropContext>
+
   );
 };
 
