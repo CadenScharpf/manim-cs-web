@@ -1,7 +1,7 @@
-import ISortable from "../../components/Sortable/Sortable";
+import ISortableData from "../../components/SortableList/ISortableData";
 
 
-const initialData: ISortable[] = [
+const initialData: ISortableData[] = [
   { id: '1', value: '7' },
   { id: '2', value: '6' },
   
