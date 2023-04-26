@@ -47,14 +47,8 @@ interface Props {
 
 const Layout: React.FC<Props> = ({ children }) => {
 
-  const handleDragEnd = (result: any) => {
-    if (!result.destination) {
-      return;
-    }
-  }
   const location = useLocation();
   return (
-
     <ThemeProvider theme={theme}>
       <Box sx={{ display: 'flex' }}>
         <CssBaseline />

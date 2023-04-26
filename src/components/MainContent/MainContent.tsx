@@ -40,8 +40,6 @@ const MainContent: React.FC<Props> = ({ children }) => {
         component="main"
         sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}
       >
-        <Toolbar >
-        </Toolbar>
         {children}
         {/* <Typography paragraph>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
