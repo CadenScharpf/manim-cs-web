@@ -5,66 +5,24 @@ import ISortable from './Sortable';
 import { Draggable, DraggableProvided } from 'react-beautiful-dnd';
 
 interface ISortableProps {
-  data: ISortable,
-  index: number,
+  data?: number,
 }
 
 interface ISortableState {
-  data: ISortable
-  index: number,
+  data?: number
+
 }
 
-
-export default class SortableArrayElement extends React.Component<ISortableProps, ISortableState> {
-  constructor(props: ISortableProps) {
-    super(props);
-    this.state = {
-      data: props.data,
-      index: props.index,
-    };
-  }
-  render(): React.ReactNode {
-    return (
-      <Draggable draggableId={this.state.data.id} index={this.props.index}>
-        {(provided: DraggableProvided) => (
-          <div
-            {...provided.draggableProps}
-            {...provided.dragHandleProps}
-            ref={provided.innerRef}
-          >
-            <SortableSquare
-              data={this.state.data}
-              index={this.props.index}  
-            />
-          </div>
-         /*  <div
-            {...provided.draggableProps}
-            {...provided.dragHandleProps}
-            ref={provided.innerRef}
-          >
-            <SortableSquare
-              data={this.state.data}
-              index={this.props.index}
-            />
-          </div> */
-
-        )}
-      </Draggable>
-    )
-  }
-}
-
-class SortableSquare extends React.Component<ISortableProps, ISortableState> {
+export class SortableSquare extends React.Component<ISortableProps, ISortableState> {
   /* theme: Theme = useTheme(); */
-
   constructor(props: ISortableProps) {
+
     super(props);
     this.state = {
-      data: props.data,
-      index: props.index
-    };
-
+      data: props.data? props.data : undefined
+    }
   }
+
   render(): React.ReactNode {
       return (
         
@@ -87,7 +45,7 @@ class SortableSquare extends React.Component<ISortableProps, ISortableState> {
                 inputMode="numeric"
                 maxLength={3}
                 placeholder="_"
-                value={this.state.data.value}
+                value={this.state.data? this.state.data : undefined}
                 onChange={() => { }}
               />
             </div>
