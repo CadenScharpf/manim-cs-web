@@ -56,7 +56,6 @@ export default function ArraySort() {
     return items.length >= 2 && validateInputs(items);
   }
   
-
   const handleAddItem = () => {
     if(items.length >= 9) { return }
     setItems((prevItems) => [
@@ -70,7 +69,6 @@ export default function ArraySort() {
       }
     }, 0);
   };
-
 
   const handleRemoveLastItem = () => {
     setItems((prevItems) => {
@@ -93,7 +91,7 @@ export default function ArraySort() {
     <div style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: 'column'   }}>
       <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
         <div style={{ display: "flex", justifyContent: "center", alignItems: "center", margin: '0px' }}>
-          <h3 style={{ paddingRight: '10px' }}>Objects:</h3> <label>{items.length}</label>
+          <h3 style={{ paddingRight: '10px' }}>Objects:</h3> <label>{items.length}</label><label> /9</label>
           <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
             <IconButton size="large" color="success" aria-label="add" onClick={handleAddItem}>
               <AddIcon />

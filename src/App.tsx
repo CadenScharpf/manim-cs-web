@@ -11,8 +11,9 @@ class App extends React.Component {
       <BrowserRouter>
         <Layout>
           <Routes>
-            <Route path="/" element={<ArraySort />} />
+            <Route path="/" element={<h1>dsf</h1>} />
             <Route path="/home" element={<h1>dsf</h1>} />
+            <Route path="/algorithms/sorting/:sortingAlgorithm" element={<h1>dsf</h1>} />
             <Route path="*" element={<ArraySort />} />
           </Routes>
         </Layout>

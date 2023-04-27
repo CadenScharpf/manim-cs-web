@@ -12,7 +12,7 @@ import { MainContent } from '../MainContent';
 import { useLocation } from 'react-router-dom';
 import { DragDropContext } from 'react-beautiful-dnd';
 
-const drawerWidth = 240;
+const drawerWidth = 200;
 
 const theme = createTheme({
   palette: {

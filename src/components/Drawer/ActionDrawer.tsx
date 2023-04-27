@@ -53,7 +53,7 @@ export const ActionDrawer: React.FC<Props> = ({ drawerWidth, children }) => {
       
 
     >
-      <Toolbar sx={{ justifyContent: 'space-between', bgcolor: 'transparent' }}><MenuIcon /> <Icon /></Toolbar>
+      <Toolbar sx={{ justifyContent: 'center', bgcolor: 'transparent' }}>{/* <MenuIcon /> */} <Icon /></Toolbar>
       <Divider />
       <List
         sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
