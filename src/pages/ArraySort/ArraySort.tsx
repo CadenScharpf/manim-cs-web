@@ -9,8 +9,8 @@ import IconButton from '@mui/material/IconButton';
 import RemoveIcon from '@mui/icons-material/Remove';
 
 const initialData: ISortableData[] = [
-  { id: "1", value: "7" },
-  /*  { id: "2", value: "6" },
+  /*{ id: "1", value: "7" },
+    { id: "2", value: "6" },
    { id: "3", value: "5" },
    { id: "4", value: "4" },
    { id: "5", value: "7" },
@@ -58,6 +58,7 @@ export default function ArraySort() {
   
 
   const handleAddItem = () => {
+    if(items.length >= 9) { return }
     setItems((prevItems) => [
       ...prevItems,
       { id: String(prevItems.length + 1), value: "" },
