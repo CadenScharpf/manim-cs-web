@@ -21,24 +21,31 @@ import { ExpandLess, ExpandMore, Rotate90DegreesCcw } from '@mui/icons-material'
 import drawerImage from '../../assets/meteor.svg';
 import drawerImageHorizontal from '../../assets/meteor_horizontal.svg';
 import logo from '../../logo.svg'
-import Logo from '../Icon/Logo';
+import {Icon} from '../Icon/';
 import MeteorHorizontal from '../../assets/MeteorHorizontal';
 import Meteor from '../../assets/Meteor';
-import ActionDrawer from '../Drawer/ActionDrawer';
 import { ListSubheader, createTheme, ThemeProvider, useTheme } from '@mui/material';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 
 interface Props {
     children: React.ReactNode;
+    drawerWidth: number;
   }
 
-const MainContent: React.FC<Props> = ({ children }) => {
+export const MainContent: React.FC<Props> = ({ children, drawerWidth }) => {
 
     return (
         <Box
         component="main"
-        sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}
+        sx={{ flexGrow: 1, 
+          bgcolor: 'background.default', 
+          p: 3, display: 'flex', 
+          flexDirection: 'column', 
+          justifyContent: 'center', 
+          alignItems: 'center', 
+          overflow: 'scroll'
+        }}
       >
         {children}
         {/* <Typography paragraph>
@@ -71,5 +78,3 @@ const MainContent: React.FC<Props> = ({ children }) => {
       </Box>
         )
 }
-
-export default MainContent;

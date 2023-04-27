@@ -14,14 +14,16 @@
     font-weight: 400;
     font-size: 1rem;
     font-family: sans-serif;
-  min-width: 60px; /* set minimum width equal to square's width */
-  min-height: 50px;
-  }
+  min-width: 50px; /* set minimum width equal to square's width */
+  min-height: 50px; /* set minimum height equal to square's height */
+  width: 80px;
+  height: 80px;
+    }
   
   .DragHandle {
     display: flex;
     width: 12px;
-    padding-bottom: px;
+    padding-bottom: 0px;
     align-items: center;
     justify-content: center;
     flex: 0 0 auto;
@@ -34,6 +36,7 @@
     background-color: transparent;
     -webkit-tap-highlight-color: transparent;
     margin-top: auto;
+    
   }
   
   .DragHandle:hover {
@@ -49,6 +52,6 @@
     margin: auto;
     height: 100%;
     overflow: visible;
-    fill: #919eab;
+    fill: #e8e8e8;
   }
   

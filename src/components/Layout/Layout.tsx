@@ -7,8 +7,8 @@ import Typography from '@mui/material/Typography';
 import {createTheme, ThemeProvider } from '@mui/material';
 import drawerImageHorizontal from '../../assets/meteor_horizontal.svg';
 
-import ActionDrawer from '../Drawer/ActionDrawer';
-import MainContent from '../MainContent/MainContent';
+import { ActionDrawer } from '../Drawer';
+import { MainContent } from '../MainContent';
 import { useLocation } from 'react-router-dom';
 import { DragDropContext } from 'react-beautiful-dnd';
 
@@ -45,12 +45,12 @@ interface Props {
   children: React.ReactNode;
 }
 
-const Layout: React.FC<Props> = ({ children }) => {
+export const Layout: React.FC<Props> = ({ children }) => {
 
   const location = useLocation();
   return (
     <ThemeProvider theme={theme}>
-      <Box sx={{ display: 'flex' }}>
+      <Box sx={{ display: 'flex', zIndex: -1 }}>
         <CssBaseline />
         <AppBar
           position="fixed"
@@ -72,12 +72,10 @@ const Layout: React.FC<Props> = ({ children }) => {
         <ActionDrawer drawerWidth={drawerWidth}>
           
         </ActionDrawer>
-        <MainContent>
+        <MainContent drawerWidth={drawerWidth}>
           {children}
         </MainContent>
       </Box>
     </ThemeProvider>
   );
 }
-
-export default Layout;

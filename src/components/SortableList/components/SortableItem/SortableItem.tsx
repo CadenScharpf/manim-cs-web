@@ -8,6 +8,8 @@ import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 
 import "./SortableItem.css";
+import { useTheme } from "@mui/material/styles";
+import { ThemeContext } from "@emotion/react";
 
 interface Props {
   id: UniqueIdentifier;
@@ -24,10 +26,11 @@ interface Context {
 const SortableItemContext = createContext<Context>({
   attributes: {},
   listeners: undefined,
-  ref() {}
+  ref() { }
 });
 
 export function SortableItem({ children, id }: PropsWithChildren<Props>) {
+  const theme = useTheme();
   const {
     attributes,
     isDragging,
@@ -62,12 +65,10 @@ export function SortableItem({ children, id }: PropsWithChildren<Props>) {
 
 export function DragHandle() {
   const { attributes, listeners, ref } = useContext(SortableItemContext);
-
+  const theme = useTheme();
   return (
     <button className="DragHandle" {...attributes} {...listeners} ref={ref}>
-      <svg viewBox="0 0 20 20" width="12">
-        <path d="M7 2a2 2 0 1 0 .001 4.001A2 2 0 0 0 7 2zm0 6a2 2 0 1 0 .001 4.001A2 2 0 0 0 7 8zm0 6a2 2 0 1 0 .001 4.001A2 2 0 0 0 7 14zm6-8a2 2 0 1 0-.001-4.001A2 2 0 0 0 13 6zm0 2a2 2 0 1 0 .001 4.001A2 2 0 0 0 13 8zm0 6a2 2 0 1 0 .001 4.001A2 2 0 0 0 13 14z"></path>
-      </svg>
-    </button>
+      <svg width="24px" height="24px" viewBox="0 0 24 24" /* {theme.palette.text.primary} */ xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M4 9a1 1 0 0 0 0 2h16a1 1 0 1 0 0-2H4ZM4 13a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2H4Z" ></path></g></svg>    </button>
   );
 }
+ 

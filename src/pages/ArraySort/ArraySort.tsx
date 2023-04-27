@@ -27,7 +27,7 @@ const initialData: ISortableData[] = [
     const [items, setItems] = useState(initialData);
     const theme = useTheme();
     return (
-      <div style={{ maxWidth: 400, margin: "30px auto" }}>
+      <div style={{ /* maxWidth: 400, */ margin: "30px auto" }}>
       <SortableList
         items={items}
         onChange={setItems}
