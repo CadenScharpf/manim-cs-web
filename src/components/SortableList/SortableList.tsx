@@ -45,6 +45,12 @@ export function SortableList<T extends BaseItem>({
     })
   );
 
+  const handleAddItem = () => {
+    const newItem = { id: String(items.length) };
+    const newItems = [...items, newItem as T];
+    onChange(newItems);
+  };
+
   return (
     <DndContext
       sensors={sensors}
@@ -74,6 +80,7 @@ export function SortableList<T extends BaseItem>({
       <SortableOverlay>
         {activeItem ? renderItem(activeItem) : null}
       </SortableOverlay>
+
     </DndContext>
   );
 }
