@@ -3,18 +3,23 @@ import ISortableData from "../../components/SortableList/ISortableData";
 import { SortableList } from "../../components";
 import { createRange } from "../../utilities";
 import "../../styles.css";
-import { useTheme } from "@mui/material";
+import { useTheme, withStyles } from "@mui/material";
+import AddIcon from '@mui/icons-material/Add';
+import IconButton from '@mui/material/IconButton';
+import RemoveIcon from '@mui/icons-material/Remove';
 
 const initialData: ISortableData[] = [
-  { id: "1", value: "7" },
+  /* { id: "1", value: "7" },
   { id: "2", value: "6" },
   { id: "3", value: "5" },
   { id: "4", value: "4" },
   { id: "5", value: "7" },
-  /*     { id: '6', value: '6' },
+      { id: '6', value: '6' },
     { id: '7', value: '5' },
     { id: '8', value: '4' }, */
 ];
+
+
 
 function getMockItems() {
   return createRange(3, (index) => ({
@@ -32,7 +37,14 @@ export default function ArraySort() {
       ...prevItems,
       { id: String(prevItems.length + 1), value: "" },
     ]);
+    setTimeout(() => {
+      const input = document.querySelector(`input[id="item-${items.length+1}-input"]`) as HTMLInputElement;      
+      if (input) {
+        input.focus();
+      }
+    }, 0);
   };
+  
 
   const handleRemoveLastItem = () => {
     setItems((prevItems) => {
@@ -44,15 +56,21 @@ export default function ArraySort() {
 
   return (
     <div style={{ /* maxWidth: 400, */ margin: "30px auto" }}>
+      
       <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-          <button onClick={handleAddItem}>Add Item</button>
-          <button onClick={handleRemoveLastItem}>Remove Last Item</button>
+        <div style={{ display: "flex", justifyContent: "center", alignItems: "center", margin: '0px' }}>
+          <h3 style={{paddingRight: '10px' }}>Objects:</h3> <label>{items.length}</label>
+<div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+          <IconButton size="large" color="success" aria-label="add" onClick={handleAddItem}>
+            <AddIcon />
+            </IconButton>
+            <IconButton color="error" aria-label="add" onClick={handleRemoveLastItem}>
+            <RemoveIcon />
+            </IconButton>
         </div>
-      <div style={{ display: "flex", justifyContent: "center", alignItems: "center", padding: '0px' }}>
-        <div style={{ display: "flex", justifyContent: "center", alignItems: "center", paddingRight: '100px' }}>
-          <h3 style={{paddingRight: '10px' }}>Objects:</h3> <label>0</label>
-        </div>
-        
+
+        </div>     
+
         
       </div>
       <SortableList
@@ -60,7 +78,7 @@ export default function ArraySort() {
         onChange={setItems}
         renderItem={(item) => (
           <SortableList.Item id={item.id} value={item.value}>
-            <input
+            <input id={"item-" + item.id + "-input"}
               type="numeric"
               style={{
                 width: "100%",
