@@ -6,10 +6,10 @@ interface ListData {
 
 const PageData: ListData = {
     "Sorting": {
-      "Insertion Sort": "insertionSort",
+      "Bubble Sort": "bubbleSort",
       "Selection Sort": "selectionSort",
-      "Merge Sort": "mergeSort",
-      "Bubble Sort": "bubbleSort"
+      /* "Insertion Sort": "insertionSort",
+      "Merge Sort": "mergeSort", */
     },
     "Searching": {
       "Linear Search": "linearSearch",

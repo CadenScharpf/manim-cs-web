@@ -7,12 +7,12 @@ import Typography from '@mui/material/Typography';
 import {createTheme, ThemeProvider } from '@mui/material';
 import drawerImageHorizontal from '../../assets/meteor_horizontal.svg';
 
-import ActionDrawer from '../Drawer/ActionDrawer';
-import MainContent from '../MainContent/MainContent';
+import { ActionDrawer } from '../Drawer';
+import { MainContent } from '../MainContent';
 import { useLocation } from 'react-router-dom';
 import { DragDropContext } from 'react-beautiful-dnd';
 
-const drawerWidth = 240;
+const drawerWidth = 200;
 
 const theme = createTheme({
   palette: {
@@ -45,12 +45,27 @@ interface Props {
   children: React.ReactNode;
 }
 
-const Layout: React.FC<Props> = ({ children }) => {
+export const Layout: React.FC<Props> = ({ children }) => {
 
   const location = useLocation();
+
+  const getTitle = () => {
+    let sp = location.pathname.split('/');
+    let title = ""
+    switch (sp[1]) {
+      case 'algorithms':
+        title = sp[sp.length-1].charAt(0).toUpperCase() + sp[sp.length-1].slice(1);
+        break;
+      case 'download':
+        title = 'Download'
+        break;
+    }
+    return title
+  }
+
   return (
     <ThemeProvider theme={theme}>
-      <Box sx={{ display: 'flex' }}>
+      <Box sx={{ display: 'flex', zIndex: -1 }}>
         <CssBaseline />
         <AppBar
           position="fixed"
@@ -63,21 +78,18 @@ const Layout: React.FC<Props> = ({ children }) => {
         >
           <Toolbar>
             <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1, textAlign: 'center', color: 'text.primary' }}>
-              {decodeURIComponent(location.pathname === '/' ? 'Home' : 
-              
-              location.pathname.split('/')[location.pathname.split('/').length-1].charAt(0).toUpperCase() + location.pathname.split('/')[location.pathname.split('/').length-1].slice(1))}
+              {decodeURIComponent(location.pathname === '/' ? 'Home' : getTitle()
+              )}
             </Typography>
           </Toolbar>
         </AppBar>
         <ActionDrawer drawerWidth={drawerWidth}>
           
         </ActionDrawer>
-        <MainContent>
+        <MainContent drawerWidth={drawerWidth}>
           {children}
         </MainContent>
       </Box>
     </ThemeProvider>
   );
 }
-
-export default Layout;
