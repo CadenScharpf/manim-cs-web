@@ -48,6 +48,21 @@ interface Props {
 export const Layout: React.FC<Props> = ({ children }) => {
 
   const location = useLocation();
+
+  const getTitle = () => {
+    let sp = location.pathname.split('/');
+    let title = ""
+    switch (sp[1]) {
+      case 'algorithms':
+        title = sp[sp.length-1].charAt(0).toUpperCase() + sp[sp.length-1].slice(1);
+        break;
+      case 'download':
+        title = 'Download'
+        break;
+    }
+    return title
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <Box sx={{ display: 'flex', zIndex: -1 }}>
@@ -63,9 +78,8 @@ export const Layout: React.FC<Props> = ({ children }) => {
         >
           <Toolbar>
             <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1, textAlign: 'center', color: 'text.primary' }}>
-              {decodeURIComponent(location.pathname === '/' ? 'Home' : 
-              
-              location.pathname.split('/')[location.pathname.split('/').length-1].charAt(0).toUpperCase() + location.pathname.split('/')[location.pathname.split('/').length-1].slice(1))}
+              {decodeURIComponent(location.pathname === '/' ? 'Home' : getTitle()
+              )}
             </Typography>
           </Toolbar>
         </AppBar>
