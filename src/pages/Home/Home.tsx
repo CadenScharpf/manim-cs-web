@@ -14,7 +14,7 @@ export const Home: React.FC = () => {
         <Box sx={{ position: 'relative', textAlign: 'center', width: "100%", height: '100%', maxWidth: 800 }} >
             <div>
                 <h1 style={{ paddingBottom: 0 }}>ManimCS</h1>
-                <p style={{ paddingTop: 0, marginTop: 0 }}>An animation library for explanatory Computer Science videos</p>
+                <p style={{ paddingTop: 0, fontSize: 15, marginTop: 0 }}>An animation library for explanatory Computer Science videos</p>
                 <div style={{ justifyContent: 'center' }}>
                     <a className='shield' href="https://pypi.org/project/manimcs/">
                         <img src="https://img.shields.io/pypi/v/manimcs.svg?style=flat&logo=pypi" alt="PyPI Latest Release" />
@@ -43,7 +43,7 @@ export const Home: React.FC = () => {
             <div style={{ textAlign: 'center', justifyContent: 'center', flexDirection: 'column', display: 'flex' }}>
                 <DataArrayIcon sx={{ fontSize: 50, marginBottom: 0, marginTop: 3, padding: 0, alignSelf: 'center' }}></DataArrayIcon>
                 <h2 style={{ marginBottom: 0, marginTop: 0 }}>Array Sort</h2>
-                <p style={{ marginTop: 0, fontSize: 15, maxWidth: '70%', alignSelf: 'center' }}>The ArraySort packages offers several tools for animating graphical visualizations of common sorting algorithms. Try it out in the web demo:</p>
+                <p style={{ marginTop: 0, fontSize: 15, maxWidth: '70%', alignSelf: 'center' }}>The ArraySort package offers several tools for animating graphical visualizations of common sorting algorithms. Try it out in the web demo:</p>
                 <Box className="array-sort-demo-cards" sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 2 }}>
                     <Card className='array-sort-demo-card'>
                         <CardHeader title="Create" titleTypographyProps={{ fontSize: 15, }} />
