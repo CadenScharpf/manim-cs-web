@@ -11,11 +11,12 @@ import ListItemText from '@mui/material/ListItemText';
 import Collapse from '@mui/material/Collapse';
 import MenuIcon from '@mui/icons-material/Menu';
 import { ExpandLess, ExpandMore, Rotate90DegreesCcw } from '@mui/icons-material';
-import { ListSubheader} from '@mui/material';
+import { IconButton, ListSubheader} from '@mui/material';
 import drawerImage from '../../assets/meteor.svg';
 import { Icon } from '../Icon';
 import { NavLink } from 'react-router-dom';
 import PageData from '../../Pages';
+import { useNavigate } from "react-router-dom";
 
 interface ListData {
   [key: string]: {
@@ -32,6 +33,7 @@ export const ActionDrawer: React.FC<Props> = ({ drawerWidth, children }) => {
 
   const [lists, setLists] = React.useState(Object.keys(PageData).map((key) => ({ id: key, isOpen: false })));
   const handleClick = (listId: string) => { setLists((prevLists) => prevLists.map((list) => list.id === listId ? { ...list, isOpen: !list.isOpen } : list)); };
+  let navigate = useNavigate();
 
   return (
     <Drawer
@@ -46,14 +48,14 @@ export const ActionDrawer: React.FC<Props> = ({ drawerWidth, children }) => {
         backgroundImage: `url(${drawerImage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center center',
-
+        position: 'fixed'
       }}
       variant="permanent"
       anchor="left"
       
 
     >
-      <Toolbar sx={{ justifyContent: 'center', bgcolor: 'transparent' }}>{/* <MenuIcon /> */} <Icon /></Toolbar>
+      <Toolbar sx={{ justifyContent: 'center', bgcolor: 'transparent' }}>{/* <MenuIcon /> */} <IconButton onClick={()=>{return navigate(`/home`)}}><Icon /></IconButton></Toolbar>
       <Divider />
       <List
         sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}

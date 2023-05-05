@@ -12,7 +12,8 @@ import { MainContent } from '../MainContent';
 import { useLocation } from 'react-router-dom';
 import { DragDropContext } from 'react-beautiful-dnd';
 
-const drawerWidth = 200;
+const drawerWidth = 180;
+const appBarHeight = 55;
 
 const theme = createTheme({
   palette: {
@@ -65,15 +66,17 @@ export const Layout: React.FC<Props> = ({ children }) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Box sx={{ display: 'flex', zIndex: -1 }}>
+      <Box sx={{ zIndex: -1 }}>
         <CssBaseline />
         <AppBar
           position="fixed"
           sx={{
             width: `calc(100% - ${drawerWidth}px)`,
+            height: appBarHeight,
             ml: `${drawerWidth}px`,
             backgroundImage: `url(${drawerImageHorizontal})`,
-            backgroundSize: 'cover'
+            backgroundSize: 'cover',
+            justifyContent: 'center',
           }}
         >
           <Toolbar>
@@ -83,10 +86,10 @@ export const Layout: React.FC<Props> = ({ children }) => {
             </Typography>
           </Toolbar>
         </AppBar>
-        <ActionDrawer drawerWidth={drawerWidth}>
+        <ActionDrawer drawerWidth={drawerWidth} >
           
         </ActionDrawer>
-        <MainContent drawerWidth={drawerWidth}>
+        <MainContent drawerWidth={drawerWidth} appBarHeight={appBarHeight} >
           {children}
         </MainContent>
       </Box>

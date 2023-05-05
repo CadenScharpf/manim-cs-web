@@ -1,0 +1,31 @@
+.shield {
+    padding: 5px;
+}
+.example-video-card {
+    background-color: #44475a;
+    width: 80%;
+    padding: 5px;
+}
+.array-sort-demo-card-media {
+
+    height: 200px;
+}
+.array-sort-demo-card {
+    justify-content: center;
+    width: 30%;
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: #44475a;
+    padding-bottom: 5px;
+}
+
+@media screen and (max-width: 800px) {
+    .array-sort-demo-card {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .array-sort-demo-card {
+        width: 50%;
+    }
+  }

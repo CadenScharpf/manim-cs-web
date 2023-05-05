@@ -31,20 +31,30 @@ import { HTML5Backend } from 'react-dnd-html5-backend';
 interface Props {
     children: React.ReactNode;
     drawerWidth: number;
+    appBarHeight: number;
   }
 
-export const MainContent: React.FC<Props> = ({ children, drawerWidth }) => {
+export const MainContent: React.FC<Props> = ({ children, drawerWidth, appBarHeight }) => {
 
     return (
         <Box
         component="main"
+        id="main-content"
         sx={{ flexGrow: 1, 
           bgcolor: 'background.default', 
           p: 3, display: 'flex', 
           flexDirection: 'column', 
           justifyContent: 'center', 
           alignItems: 'center', 
-          overflow: 'scroll'
+          overflow: 'scroll',
+          position: 'fixed',
+          left: `${drawerWidth}px`,
+          right:0,
+          top: appBarHeight,
+          bottom:0,
+          padding: 0,
+          marginBottom: 2
+
         }}
       >
         {children}

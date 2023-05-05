@@ -29,10 +29,10 @@ const initialData: ISortableData[] = [
 const implemented = ["Bubble Sort", "Selection Sort"]
 
 // AWS EC2 instance
-const baseUrl = 'http://ec2-13-57-239-150.us-west-1.compute.amazonaws.com:80';
+//const baseUrl = 'http://ec2-13-57-239-150.us-west-1.compute.amazonaws.com:80';
 
 // Localhost
-//const baseUrl = 'http://localhost:5000';
+const baseUrl = 'http://localhost:80';
 
 const endpoint = '/arraysort';
 
@@ -173,7 +173,7 @@ const ArraySort: React.FC<IArraySortProps> = ({submit}) => {
     )
 
     return (
-        <div style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: 'column' }}>
+        <div style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: 'column', position: 'relative'}}>
                 <div id="quantityControlPanel" style={{ display: "flex", justifyContent: "center", alignItems: "center", margin: '0px' }}>
                     <h3 style={{ paddingRight: '10px' }}>Objects:</h3> <label>{items.length}</label><label> /9</label>
                     <div id="addRemoveGroup" style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
