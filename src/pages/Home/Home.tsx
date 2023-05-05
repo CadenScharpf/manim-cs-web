@@ -76,20 +76,35 @@ export const Home: React.FC = () => {
 
             <div style={{ justifyContent: 'center', alignItems: 'center', display: 'flex', flexDirection: 'column' }}>
                 <VideoLibraryIcon sx={{ fontSize: 50, marginBottom: 0, marginTop: 3, padding: 0 }}></VideoLibraryIcon>
-                <h2 style={{ marginBottom: 0, marginTop: 0, padding: 0, paddingBottom: 10 }}>Examples</h2>
-                <Card sx={{}} className="example-video-card" title="Array Sort" >
-                    <CardHeader
-                        title="Array Sort"
-                        subheader="Bubble Sort Algorithm"
-                    />
-                    <CardMedia
-                        className='array-sort-demo-card-media'
-                        component="video"
-                        src={require('./bubble-sort-example.mp4')}
-                        controls
-                        style={{ height: 'auto', margin: 0 }}
-                    />
-                </Card>
+                <h2 style={{ marginBottom: 0, marginTop: 0, padding: 0, paddingBottom: 10, margin: 5 }}>Examples</h2>
+                <Box sx={{display: 'flex', gap: 3, flexDirection: 'column', alignItems: 'center'}}>
+                    <Card sx={{}} className="example-video-card" title="Array Sort" >
+                        <CardHeader
+                            title="Array Sort:"
+                            subheader="Bubble Sort Algorithm"
+                        />
+                        <CardMedia
+                            className='array-sort-demo-card-media'
+                            component="video"
+                            src={require('./bubble-sort-example.mp4')}
+                            controls
+                            style={{ height: 'auto', margin: 0 }}
+                        />
+                    </Card>
+                    <Card sx={{}} className="example-video-card" title="Array Sort" >
+                        <CardHeader
+                            title="Array Sort"
+                            subheader="Selection Sort Algorithm"
+                        />
+                        <CardMedia
+                            className='array-sort-demo-card-media'
+                            component="video"
+                            src={require('./selection-sort-example.mp4')}
+                            controls
+                            style={{ height: 'auto', margin: 0 }}
+                        />
+                    </Card>
+                </Box>
             </div>
         </Box>
     )
