@@ -29,10 +29,10 @@ const initialData: ISortableData[] = [
 const implemented = ["Bubble Sort", "Selection Sort"]
 
 // AWS EC2 instance
-//const baseUrl = 'http://ec2-13-57-239-150.us-west-1.compute.amazonaws.com:80';
+const baseUrl = 'http://ec2-13-57-239-150.us-west-1.compute.amazonaws.com:80';
 
 // Localhost
-const baseUrl = 'http://localhost:80';
+//const baseUrl = 'http://localhost:80';
 
 const endpoint = '/arraysort';
 

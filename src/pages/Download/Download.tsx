@@ -13,8 +13,8 @@ export const Download: React.FC = () => {
     
     //const fileurl = 'http://ec2-13-57-239-150.us-west-1.compute.amazonaws.com:80/getfile/'+filename;
 
-    //const fileurl = 'http://ec2-13-57-239-150.us-west-1.compute.amazonaws.com:80/getfile/'+filename;
-    const fileurl = 'http://localhost:80/getfile/'+filename;
+    const fileurl = 'http://ec2-13-57-239-150.us-west-1.compute.amazonaws.com:80/getfile/'+filename;
+    //const fileurl = 'http://localhost:80/getfile/'+filename;
 
     const { size, elapsed, percentage, download, cancel, error, isInProgress } = useDownloader();
 
