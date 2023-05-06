@@ -80,6 +80,7 @@ export default function ArraySortWrapper() {
             headers: {
               'Content-Type': 'application/json',
               'Accept': 'application/json',
+              'Access-Control-Allow-Origin': '*'
             },
             body: JSON.stringify(requestBody),
           });
