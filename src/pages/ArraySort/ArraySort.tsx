@@ -32,9 +32,6 @@ const implemented = ["Bubble Sort", "Selection Sort"]
 // AWS EC2 instance
 const baseUrl = hostsConfig.mcs.baseUrl;
 
-// Localhost
-//const baseUrl = 'http://localhost:80';
-
 const endpoint = '/arraysort';
 
 function validateInputs(items: ISortableData[]) {
