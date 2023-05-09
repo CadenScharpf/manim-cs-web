@@ -2,6 +2,7 @@ import { Button } from '@mui/material';
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import useDownloader from 'react-use-downloader';
+import { hostsConfig } from '../../Api';
 
 interface IDownloadProps {
     filename: string;
@@ -11,10 +12,7 @@ export const Download: React.FC = () => {
     let { filename } = useParams();
     let f = filename? filename : '';
     
-    //const fileurl = 'http://ec2-13-57-239-150.us-west-1.compute.amazonaws.com:80/getfile/'+filename;
-
-    const fileurl = 'http://ec2-13-57-239-150.us-west-1.compute.amazonaws.com/getfile/'+filename;
-    //const fileurl = 'http://localhost:80/getfile/'+filename;
+    const fileurl = hostsConfig.mcs.baseUrl + '/getfile/'+filename;
 
     const { size, elapsed, percentage, download, cancel, error, isInProgress } = useDownloader();
 

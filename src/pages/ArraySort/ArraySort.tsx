@@ -11,6 +11,7 @@ import { SortableData } from "@dnd-kit/sortable";
 import { AnimationLoading } from "../../components/AnimationLoading/AnimationLoading";
 import {  useLocation, useParams } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
+import { hostsConfig } from "../../Api";
 
 
 
@@ -29,7 +30,7 @@ const initialData: ISortableData[] = [
 const implemented = ["Bubble Sort", "Selection Sort"]
 
 // AWS EC2 instance
-const baseUrl = 'http://ec2-13-57-239-150.us-west-1.compute.amazonaws.com';
+const baseUrl = hostsConfig.mcs.baseUrl;
 
 // Localhost
 //const baseUrl = 'http://localhost:80';
