@@ -1,1 +1,3 @@
-Try it out: https://ec2-13-56-159-214.us-west-1.compute.amazonaws.com/
+# ManimCS Web Demo
+## About 
+This repository contains the source code for an interactive web demonstration of the <a href="https://github.com/CadenScharpf/manim-cs/tree/master">ManimCS</a> animation library for python. Try it out and generate custom animations without installing anything: <a href="https://manimcs-demo.cadenscharpf.tech/">https://manimcs-demo.cadenscharpf.tech/</a>
