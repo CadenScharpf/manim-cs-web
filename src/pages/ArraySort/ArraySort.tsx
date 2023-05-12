@@ -13,7 +13,7 @@ import {  useLocation, useParams } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import { hostsConfig } from "../../Api";
 
-
+let maxItems = 4;
 
 
 const initialData: ISortableData[] = [
@@ -55,6 +55,7 @@ export default function ArraySortWrapper() {
     const location = useLocation();
     const { pathname } = location;
     let navigate = useNavigate();
+    
 
     interface ApiResult {
         success: boolean;
@@ -62,7 +63,6 @@ export default function ArraySortWrapper() {
     }
 
     let submit = async (items: ISortableData[]) => {
-       
         const sp = pathname.split('/')
         const _algorithm = sp[sp.length - 1].toLowerCase().replace(/%20/g, '-')
         const _inputValues = items.map((item) => parseInt(item.value));
@@ -125,7 +125,7 @@ const ArraySort: React.FC<IArraySortProps> = ({submit}) => {
     }
     
     const handleAddItem = () => {
-        if (items.length >= 9) { return }
+        if (items.length >= maxItems) { return }
         setItems((prevItems) => [
             ...prevItems,
             { id: String(prevItems.length + 1), value: "" },
@@ -174,7 +174,7 @@ const ArraySort: React.FC<IArraySortProps> = ({submit}) => {
     return (
         <div style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: 'column', position: 'relative'}}>
                 <div id="quantityControlPanel" style={{ display: "flex", justifyContent: "center", alignItems: "center", margin: '0px' }}>
-                    <h3 style={{ paddingRight: '10px' }}>Objects:</h3> <label>{items.length}</label><label> /9</label>
+                    <h3 style={{ paddingRight: '10px' }}>Objects:</h3> <label>{items.length}</label><label> /{maxItems}</label>
                     <div id="addRemoveGroup" style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                         <IconButton size="large" color="success" aria-label="add" onClick={handleAddItem}>
                             <AddIcon />

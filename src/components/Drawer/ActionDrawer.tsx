@@ -9,7 +9,6 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import Collapse from '@mui/material/Collapse';
-import MenuIcon from '@mui/icons-material/Menu';
 import { ExpandLess, ExpandMore, Rotate90DegreesCcw } from '@mui/icons-material';
 import { IconButton, ListSubheader} from '@mui/material';
 import drawerImage from '../../assets/meteor.svg';
@@ -24,12 +23,13 @@ interface ListData {
   };
 }
 
-interface Props {
-  children: React.ReactNode;
+interface IActionDrawerProps {
+
   drawerWidth: number;
+  toggle: () => void;
 }
 
-export const ActionDrawer: React.FC<Props> = ({ drawerWidth, children }) => {
+export const ActionDrawer: React.FC<IActionDrawerProps> = ({drawerWidth, toggle}) => {
 
   const [lists, setLists] = React.useState(Object.keys(PageData).map((key) => ({ id: key, isOpen: false })));
   const handleClick = (listId: string) => { setLists((prevLists) => prevLists.map((list) => list.id === listId ? { ...list, isOpen: !list.isOpen } : list)); };
@@ -55,7 +55,9 @@ export const ActionDrawer: React.FC<Props> = ({ drawerWidth, children }) => {
       
 
     >
-      <Toolbar sx={{ justifyContent: 'center', bgcolor: 'transparent' }}>{/* <MenuIcon /> */} <IconButton onClick={()=>{return navigate(`/home`)}}><Icon /></IconButton></Toolbar>
+      <Toolbar sx={{ justifyContent: 'center', bgcolor: 'transparent' }}>
+         <IconButton onClick={()=>{return navigate(`/home`)}}><Icon /></IconButton>
+         </Toolbar>
       <Divider />
       <List
         sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}

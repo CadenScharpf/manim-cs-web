@@ -4,15 +4,15 @@ import CssBaseline from '@mui/material/CssBaseline';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import {createTheme, ThemeProvider } from '@mui/material';
+import {createTheme, IconButton, ThemeProvider } from '@mui/material';
 import drawerImageHorizontal from '../../assets/meteor_horizontal.svg';
 
 import { ActionDrawer } from '../Drawer';
 import { MainContent } from '../MainContent';
 import { useLocation } from 'react-router-dom';
-import { DragDropContext } from 'react-beautiful-dnd';
+import MenuIcon from '@mui/icons-material/Menu';
 
-const drawerWidth = 180;
+
 const appBarHeight = 55;
 
 const theme = createTheme({
@@ -47,7 +47,7 @@ interface Props {
 }
 
 export const Layout: React.FC<Props> = ({ children }) => {
-
+  const [drawerWidth, setDrawerWidth] = React.useState(180)
   const location = useLocation();
 
   const getTitle = () => {
@@ -63,6 +63,10 @@ export const Layout: React.FC<Props> = ({ children }) => {
     }
     return title
   }
+
+  const toggleDrawer = () => { 
+    setDrawerWidth(drawerWidth === 0 ? 180 : 0);
+  };
 
   return (
     <ThemeProvider theme={theme}>
@@ -80,15 +84,14 @@ export const Layout: React.FC<Props> = ({ children }) => {
           }}
         >
           <Toolbar>
+          <IconButton style={{alignSelf: 'left', padding: 0, margin: 0, color: '#fff'}} onClick={()=>{toggleDrawer()}}><MenuIcon/></IconButton>
             <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1, textAlign: 'center', color: 'text.primary' }}>
               {decodeURIComponent(location.pathname === '/' ? 'Home' : getTitle()
               )}
             </Typography>
           </Toolbar>
         </AppBar>
-        <ActionDrawer drawerWidth={drawerWidth} >
-          
-        </ActionDrawer>
+        <ActionDrawer drawerWidth={drawerWidth} toggle={toggleDrawer} />
         <MainContent drawerWidth={drawerWidth} appBarHeight={appBarHeight} >
           {children}
         </MainContent>
