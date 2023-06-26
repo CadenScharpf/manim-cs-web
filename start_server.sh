@@ -1,1 +1,1 @@
-sudo pm2 start serve --name manim-cs-web -- -s build -l 80
+pm2 -f serve build 3000 --name manim-cs-web
